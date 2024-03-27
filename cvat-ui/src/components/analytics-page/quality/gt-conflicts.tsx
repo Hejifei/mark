@@ -27,43 +27,43 @@ export function ConflictsTooltip(props: ConflictTooltipProps): JSX.Element {
         <Row className='cvat-analytics-tooltip-conflicts-inner'>
             <Col span={12}>
                 <Text>
-                    Warnings:
+                    告警:
                 </Text>
                 <Text>
-                    Low overlap:&nbsp;
+                    低重叠:&nbsp;
                     {reportSummary?.conflictsByType.lowOverlap || 0}
                 </Text>
                 <Text>
-                    Mismatching direction:&nbsp;
+                    方向不匹配:&nbsp;
                     {reportSummary?.conflictsByType.mismatchingDirection || 0}
                 </Text>
                 <Text>
-                    Mismatching attributes:&nbsp;
+                    属性不匹配:&nbsp;
                     {reportSummary?.conflictsByType.mismatchingAttributes || 0}
                 </Text>
                 <Text>
-                    Mismatching groups:&nbsp;
+                    不匹配的组:&nbsp;
                     {reportSummary?.conflictsByType.mismatchingGroups || 0}
                 </Text>
                 <Text>
-                    Covered annotation:&nbsp;
+                    覆盖注释:&nbsp;
                     {reportSummary?.conflictsByType.coveredAnnotation || 0}
                 </Text>
             </Col>
             <Col span={12}>
                 <Text>
-                    Errors:
+                    错误:
                 </Text>
                 <Text>
-                    Missing annotations:&nbsp;
+                    缺少注释:&nbsp;
                     {reportSummary?.conflictsByType.missingAnnotations || 0}
                 </Text>
                 <Text>
-                    Extra annotations:&nbsp;
+                    额外注释s:&nbsp;
                     {reportSummary?.conflictsByType.extraAnnotations || 0}
                 </Text>
                 <Text>
-                    Mismatching label:&nbsp;
+                    标签不匹配:&nbsp;
                     {reportSummary?.conflictsByType.mismatchingLabel || 0}
                 </Text>
             </Col>
@@ -86,7 +86,7 @@ function GTConflicts(props: Props): JSX.Element {
     const bottomElement = (
         <>
             <Text type='secondary'>
-                Errors:
+                错误:
                 {' '}
                 {clampValue(reportSummary?.errorCount)}
                 {reportSummary?.errorCount ?
@@ -94,7 +94,7 @@ function GTConflicts(props: Props): JSX.Element {
             </Text>
             <Text type='secondary'>
                 {', '}
-                Warnings:
+                告警:
                 {' '}
                 {clampValue(reportSummary?.warningCount)}
                 { reportSummary?.warningCount ?
@@ -105,7 +105,7 @@ function GTConflicts(props: Props): JSX.Element {
 
     return (
         <AnalyticsCard
-            title='GT Conflicts'
+            title='GT 冲突'
             className='cvat-task-gt-conflicts'
             value={conflictsRepresentation}
             tooltip={<ConflictsTooltip reportSummary={reportSummary} />}

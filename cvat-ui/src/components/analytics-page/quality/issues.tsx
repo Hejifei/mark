@@ -45,7 +45,7 @@ function Issues(props: Props): JSX.Element {
 
     const bottomElement = (
         <Text type='secondary'>
-            Resolved:
+            解决:
             {' '}
             {clampValue(resolvedIssues)}
             {resolvedIssues ? ` (${percent(resolvedIssues, issuesCount)})` : ''}
@@ -54,7 +54,7 @@ function Issues(props: Props): JSX.Element {
 
     return (
         <AnalyticsCard
-            title='Issues'
+            title='问题'
             className='cvat-task-issues'
             value={issuesCount}
             size={12}

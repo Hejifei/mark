@@ -49,10 +49,7 @@ function TaskQualityComponent(props: Props): JSX.Element {
             </Row>
             <Row>
                 <Text type='secondary' className='cvat-task-quality-reports-hint'>
-                    Quality reports are not computed unless the GT job is in the&nbsp;
-                    <strong>completed state</strong>
-                    &nbsp;and&nbsp;
-                    <strong>acceptance stage.</strong>
+                    除非 GT 作业处于完成状态和验收阶段，否则不会计算质量报告。
                 </Text>
             </Row>
             <Row>

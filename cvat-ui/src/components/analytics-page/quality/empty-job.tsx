@@ -23,11 +23,11 @@ function EmptyJobComponent(props: Props): JSX.Element {
             <Card className='cvat-job-empty-ground-truth-item'>
                 <Row justify='space-between' align='middle'>
                     <Col>
-                        <Title level={5}>No Ground Truth job created yet...</Title>
+                        <Title level={5}>尚未创建 Ground Truth 职位...</Title>
                     </Col>
                     <Col>
                         <Button type='primary'>
-                            <Link to={`/tasks/${taskId}/jobs/create`}>Create new</Link>
+                            <Link to={`/tasks/${taskId}/jobs/create`}>新增</Link>
                         </Button>
                     </Col>
                 </Row>

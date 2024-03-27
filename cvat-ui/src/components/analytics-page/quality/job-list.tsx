@@ -91,7 +91,7 @@ function JobListComponent(props: Props): JSX.Element {
 
     const columns = [
         {
-            title: 'Job',
+            title: '工作',
             dataIndex: 'job',
             key: 'job',
             render: (id: number): JSX.Element => (
@@ -111,7 +111,7 @@ function JobListComponent(props: Props): JSX.Element {
             ),
         },
         {
-            title: 'Stage',
+            title: '阶段',
             dataIndex: 'stage',
             key: 'stage',
             className: 'cvat-job-item-stage',
@@ -133,7 +133,7 @@ function JobListComponent(props: Props): JSX.Element {
             onFilter: (value: string | number | boolean, record: any) => record.stage.stage === value,
         },
         {
-            title: 'Assignee',
+            title: '受让人',
             dataIndex: 'assignee',
             key: 'assignee',
             className: 'cvat-job-item-assignee',
@@ -147,7 +147,7 @@ function JobListComponent(props: Props): JSX.Element {
             ) === value,
         },
         {
-            title: 'Frame intersection',
+            title: '框架相交',
             dataIndex: 'frame_intersection',
             key: 'frame_intersection',
             className: 'cvat-job-item-frame-intersection',
@@ -161,7 +161,7 @@ function JobListComponent(props: Props): JSX.Element {
             },
         },
         {
-            title: 'Conflicts',
+            title: '冲突',
             dataIndex: 'conflicts',
             key: 'conflicts',
             className: 'cvat-job-item-conflicts',
@@ -187,7 +187,7 @@ function JobListComponent(props: Props): JSX.Element {
             },
         },
         {
-            title: 'Quality',
+            title: '质量',
             dataIndex: 'quality',
             key: 'quality',
             align: 'center' as const,
@@ -211,7 +211,7 @@ function JobListComponent(props: Props): JSX.Element {
             },
         },
         {
-            title: 'Download',
+            title: '下载',
             dataIndex: 'download',
             key: 'download',
             className: 'cvat-job-item-quality-report-download',

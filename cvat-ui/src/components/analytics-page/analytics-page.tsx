@@ -237,7 +237,7 @@ function AnalyticsPage(): JSX.Element {
                         <Tabs.TabPane
                             tab={(
                                 <span>
-                                    <Text>Performance</Text>
+                                    <Text>表现</Text>
                                 </span>
                             )}
                             key='Overview'
@@ -271,7 +271,7 @@ function AnalyticsPage(): JSX.Element {
                         <Tabs.TabPane
                             tab={(
                                 <span>
-                                    <Text>Performance</Text>
+                                    <Text>表现</Text>
                                 </span>
                             )}
                             key='overview'
@@ -284,7 +284,7 @@ function AnalyticsPage(): JSX.Element {
                         <Tabs.TabPane
                             tab={(
                                 <span>
-                                    <Text>Quality</Text>
+                                    <Text>质量</Text>
                                 </span>
                             )}
                             key='quality'

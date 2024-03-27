@@ -30,30 +30,30 @@ function MeanQuality(props: Props): JSX.Element {
     const tooltip = (
         <div className='cvat-analytics-tooltip-inner'>
             <Text>
-                Mean annotation quality consists of:
+                平均标注质量包括：
             </Text>
             <Text>
-                Correct annotations:&nbsp;
+                正确的注释:&nbsp;
                 {reportSummary?.validCount || 0}
             </Text>
             <Text>
-                Task annotations:&nbsp;
+                任务注释:&nbsp;
                 {reportSummary?.dsCount || 0}
             </Text>
             <Text>
-                GT annotations:&nbsp;
+                GT注释:&nbsp;
                 {reportSummary?.gtCount || 0}
             </Text>
             <Text>
-                Accuracy:&nbsp;
+                准确性:&nbsp;
                 {toRepresentation(reportSummary?.accuracy)}
             </Text>
             <Text>
-                Precision:&nbsp;
+                精确:&nbsp;
                 {toRepresentation(reportSummary?.precision)}
             </Text>
             <Text>
-                Recall:&nbsp;
+                记起:&nbsp;
                 {toRepresentation(reportSummary?.recall)}
             </Text>
         </div>
@@ -69,7 +69,7 @@ function MeanQuality(props: Props): JSX.Element {
                                 href={`${getCore().config.backendAPI}/quality/reports/${taskReport?.id}/data`}
                                 download={`quality-report-task_${task.id}-${taskReport?.id}.json`}
                             >
-                                Quality Report
+                                质量报告
                             </a>
                         </Button>
                         <MoreOutlined
@@ -87,7 +87,7 @@ function MeanQuality(props: Props): JSX.Element {
     );
     return (
         <AnalyticsCard
-            title='Mean annotation quality'
+            title='平均标注质量'
             className='cvat-task-mean-annotation-quality'
             value={toRepresentation(reportSummary?.accuracy)}
             tooltip={tooltip}
