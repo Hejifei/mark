@@ -31,8 +31,8 @@ function JobActionsMenu(props: Props): JSX.Element {
 
     const onDelete = useCallback(() => {
         Modal.confirm({
-            title: `The job ${job.id} will be deleted`,
-            content: 'All related data (annotations) will be lost. Continue?',
+            title: `工作 ${job.id} 将要被删除`,
+            content: '所有相关数据（注释）都将丢失。 继续？',
             className: 'cvat-modal-confirm-delete-job',
             onOk: () => {
                 dispatch(deleteJobAsync(job));
@@ -72,23 +72,23 @@ function JobActionsMenu(props: Props): JSX.Element {
                 }
             }}
         >
-            <Menu.Item key='task' disabled={job.taskId === null}>Go to the task</Menu.Item>
-            <Menu.Item key='project' disabled={job.projectId === null}>Go to the project</Menu.Item>
-            <Menu.Item key='bug_tracker' disabled={!job.bugTracker}>Go to the bug tracker</Menu.Item>
-            <Menu.Item key='import_job'>Import annotations</Menu.Item>
-            <Menu.Item key='export_job'>Export annotations</Menu.Item>
-            <Menu.Item key='view_analytics'>View analytics</Menu.Item>
+            <Menu.Item key='task' disabled={job.taskId === null}>前往任务</Menu.Item>
+            <Menu.Item key='project' disabled={job.projectId === null}>前往项目</Menu.Item>
+            <Menu.Item key='bug_tracker' disabled={!job.bugTracker}>转到错误跟踪器</Menu.Item>
+            <Menu.Item key='import_job'>导入注释</Menu.Item>
+            <Menu.Item key='export_job'>导出注释</Menu.Item>
+            <Menu.Item key='view_analytics'>查看分析</Menu.Item>
             {[JobStage.ANNOTATION, JobStage.VALIDATION].includes(job.stage) ?
-                <Menu.Item key='finish_job'>Finish the job</Menu.Item> : null}
+                <Menu.Item key='finish_job'>完成工作</Menu.Item> : null}
             {job.stage === JobStage.ACCEPTANCE ?
-                <Menu.Item key='renew_job'>Renew the job</Menu.Item> : null}
+                <Menu.Item key='renew_job'>新建工作</Menu.Item> : null}
             <Menu.Divider />
             <Menu.Item
                 key='delete'
                 disabled={job.type !== JobType.GROUND_TRUTH}
                 onClick={() => onDelete()}
             >
-                Delete
+                删除
             </Menu.Item>
         </Menu>
     );

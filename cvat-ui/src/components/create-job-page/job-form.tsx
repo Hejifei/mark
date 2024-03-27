@@ -116,29 +116,29 @@ function JobForm(props: Props): JSX.Element {
                     <Col>
                         <Form.Item
                             name='type'
-                            label='Job type'
-                            rules={[{ required: true, message: 'Please, specify Job type' }]}
+                            label='工作类型'
+                            rules={[{ required: true, message: '请指定职位类型' }]}
                         >
                             <Select
                                 virtual={false}
                                 className='cvat-select-job-type'
                             >
                                 <Select.Option value={JobType.GROUND_TRUTH}>
-                                    Ground truth
+                                地面真相
                                 </Select.Option>
                             </Select>
                         </Form.Item>
                         <Form.Item
                             name='frame_selection_method'
-                            label='Frame selection method'
-                            rules={[{ required: true, message: 'Please, specify frame selection method' }]}
+                            label='框架选择方法'
+                            rules={[{ required: true, message: '请指定框架选择方法' }]}
                         >
                             <Select
                                 virtual={false}
                                 className='cvat-select-frame-selection-method'
                             >
                                 <Select.Option value={FrameSelectionMethod.RANDOM}>
-                                    Random
+                                随机的
                                 </Select.Option>
                             </Select>
                         </Form.Item>
@@ -150,7 +150,7 @@ function JobForm(props: Props): JSX.Element {
                                     name='quantity'
                                     label={(
                                         <Space>
-                                            Quantity %
+                                            数量 %
                                             <CVATTooltip title={frameCountDescription}>
                                                 <QuestionCircleOutlined
                                                     style={{ opacity: 0.5 }}
@@ -158,7 +158,7 @@ function JobForm(props: Props): JSX.Element {
                                             </CVATTooltip>
                                         </Space>
                                     )}
-                                    rules={[{ required: true, message: 'Please, specify quantity' }]}
+                                    rules={[{ required: true, message: '请注明数量' }]}
                                 >
                                     <InputNumber
                                         className='cvat-input-frame-quantity'
@@ -177,7 +177,7 @@ function JobForm(props: Props): JSX.Element {
                                             name='frame_count'
                                             label={(
                                                 <Space>
-                                                    Frame count
+                                                    帧数
                                                     <CVATTooltip title={frameCountDescription}>
                                                         <QuestionCircleOutlined
                                                             style={{ opacity: 0.5 }}
@@ -185,7 +185,7 @@ function JobForm(props: Props): JSX.Element {
                                                     </CVATTooltip>
                                                 </Space>
                                             )}
-                                            rules={[{ required: true, message: 'Please, specify frame count' }]}
+                                            rules={[{ required: true, message: '请指定帧数' }]}
                                         >
                                             <InputNumber
                                                 className='cvat-input-frame-count'
@@ -201,7 +201,7 @@ function JobForm(props: Props): JSX.Element {
                             <Col>
                                 <Form.Item
                                     name='seed'
-                                    label='Seed'
+                                    label='种子'
                                 >
                                     <InputNumber
                                         className='cvat-input-seed'
@@ -222,7 +222,7 @@ function JobForm(props: Props): JSX.Element {
                             onClick={onSubmit}
                             loading={fetching}
                         >
-                            Submit
+                            提交
                         </Button>
                     </Col>
                 </Row>

@@ -180,18 +180,20 @@ function MoveTaskModal({
             okButtonProps={{ disabled: isUpdating }}
             title={(
                 <span>
-                    {`Move task ${taskInstance?.id} to project`}
+                    {`${taskInstance?.id} 移至项目`}
                     {/* TODO: replace placeholder */}
-                    <CVATTooltip title='Some moving process description here'>
+                    <CVATTooltip title='这里有一些移动过程的描述'>
                         <QuestionCircleOutlined className='ant-typography-secondary' />
                     </CVATTooltip>
                 </span>
             )}
             className='cvat-task-move-modal'
+            okText={'确定'}
+            cancelText={'取消'}
         >
             { taskFetching && <CVATLoadingSpinner size='large' /> }
             <Row align='middle'>
-                <Col>Project:</Col>
+                <Col>项目:</Col>
                 <Col>
                     <ProjectSearch
                         value={projectId}
@@ -200,7 +202,7 @@ function MoveTaskModal({
                     />
                 </Col>
             </Row>
-            <Divider orientation='left'>Label mapping</Divider>
+            <Divider orientation='left'>标签映射</Divider>
             {!!Object.keys(labelMap).length &&
                 !isUpdating &&
                 taskInstance?.labels.map((label: any) => (

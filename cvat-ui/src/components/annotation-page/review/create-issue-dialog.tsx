@@ -53,7 +53,7 @@ function MessageForm(props: FormProps): JSX.Element {
                         type='ghost'
                         className='cvat-create-issue-dialog-cancel-button'
                     >
-                        Cancel
+                        取消
                     </Button>
                 </Col>
                 <Col>
@@ -64,7 +64,7 @@ function MessageForm(props: FormProps): JSX.Element {
                         htmlType='submit'
                         className='cvat-create-issue-dialog-submit-button'
                     >
-                        Submit
+                        提交
                     </Button>
                 </Col>
             </Row>

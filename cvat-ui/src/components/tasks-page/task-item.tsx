@@ -109,6 +109,7 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
         const { taskInstance } = this.props;
         const { id } = taskInstance;
         const owner = taskInstance.owner ? taskInstance.owner.username : null;
+        moment.locale('zh-cn')
         const updated = moment(taskInstance.updatedDate).fromNow();
         const created = moment(taskInstance.createdDate).format('MMMM Do YYYY');
 
@@ -124,11 +125,11 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                 <br />
                 {owner && (
                     <>
-                        <Text type='secondary'>{`所有者 ${owner ? `${owner}` : ''} on ${created}`}</Text>
+                        <Text type='secondary'>{`作者 ${owner ? `${owner}` : ''} 创建于 ${created}`}</Text>
                         <br />
                     </>
                 )}
-                <Text type='secondary'>{`Last updated ${updated}`}</Text>
+                <Text type='secondary'>{`最近更新于 ${updated}`}</Text>
             </Col>
         );
     }
@@ -248,7 +249,7 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                                 history.push(`/tasks/${id}`);
                             }}
                         >
-                            Open
+                            打开
                         </Button>
                     </Col>
                 </Row>
@@ -263,7 +264,7 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                         )}
                     >
                         <Col className='cvat-item-open-task-actions'>
-                            <Text className='cvat-text-color'>Actions</Text>
+                            <Text className='cvat-text-color'>操作</Text>
                             <MoreOutlined className='cvat-menu-icon' />
                         </Col>
                     </Dropdown>

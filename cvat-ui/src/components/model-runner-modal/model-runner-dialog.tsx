@@ -83,7 +83,7 @@ function ModelRunnerDialog(props: StateToProps & DispatchToProps): JSX.Element {
             footer={[]}
             onCancel={(): void => closeDialog()}
             maskClosable
-            title='Automatic annotation'
+            title='自动标注'
         >
             { taskInstance ? (
                 <DetectorRunner

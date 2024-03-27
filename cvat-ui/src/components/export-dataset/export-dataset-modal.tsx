@@ -85,8 +85,9 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
     }, [instance]);
 
     useEffect(() => {
-        setHelpMessage(`Export to ${(defaultStorageLocation) ? defaultStorageLocation.split('_')[0] : 'local'} ` +
-                        `storage ${(defaultStorageCloudId) ? `№${defaultStorageCloudId}` : ''}`);
+        console.log({defaultStorageLocation})
+        setHelpMessage(`导出到 ${(defaultStorageLocation) ? defaultStorageLocation.split('_')[0].replace('local', '本地') : '本地'} ` +
+                        `存储 ${(defaultStorageCloudId) ? `№${defaultStorageCloudId}` : ''}`);
     }, [defaultStorageLocation, defaultStorageCloudId]);
 
     const closeModal = (): void => {
@@ -133,6 +134,8 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
             onOk={() => form.submit()}
             className={`cvat-modal-export-${instanceType.split(' ')[0]}`}
             destroyOnClose
+            okText='确定'
+            cancelText='取消'
         >
             <Form
                 name='Export dataset'
@@ -194,7 +197,7 @@ function ExportDatasetModal(props: StateToProps): JSX.Element {
                 </Form.Item>
                 <TargetStorageField
                     instanceId={instance ? instance.id : null}
-                    switchDescription='Use default settings'
+                    switchDescription='使用默认设置'
                     switchHelpMessage={helpMessage}
                     useDefaultStorage={useDefaultTargetStorage}
                     storageDescription='Specify target storage for export dataset'

@@ -46,7 +46,7 @@ export default function StoragesTopBar(props: Props): JSX.Element {
                         }}
                         defaultValue={query.search || ''}
                         className='cvat-cloudstorages-page-tasks-search-bar'
-                        placeholder='Search ...'
+                        placeholder='搜索 ...'
                     />
                     <div>
                         <SortingComponent

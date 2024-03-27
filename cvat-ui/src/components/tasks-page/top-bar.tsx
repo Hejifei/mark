@@ -62,7 +62,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                         }}
                         defaultValue={query.search || ''}
                         className='cvat-tasks-page-search-bar'
-                        placeholder='Search ...'
+                        placeholder='搜索 ...'
                     />
                     <div>
                         <SortingComponent
@@ -103,7 +103,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                     onClick={(): void => history.push('/tasks/create')}
                                     icon={<PlusOutlined />}
                                 >
-                                    Create a new task
+                                    创建一个新任务
                                 </Button>
                                 <Button
                                     className='cvat-create-multi-tasks-button'
@@ -111,7 +111,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                     onClick={(): void => history.push('/tasks/create?many=true')}
                                     icon={<span className='anticon'><MultiPlusIcon /></span>}
                                 >
-                                    Create multi tasks
+                                    创建多任务
                                 </Button>
                                 <Button
                                     className='cvat-import-task-button'
@@ -120,7 +120,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                                     icon={<UploadOutlined />}
                                     onClick={() => dispatch(importActions.openImportBackupModal('task'))}
                                 >
-                                    Create from backup
+                                    从备份创建
                                     {importing && <LoadingOutlined />}
                                 </Button>
                             </CvatDropdownMenuPaper>

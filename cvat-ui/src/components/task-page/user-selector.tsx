@@ -112,7 +112,7 @@ export default function UserSelector(props: Props): JSX.Element {
         <Autocomplete
             ref={autocompleteRef}
             value={searchPhrase}
-            placeholder='Select a user'
+            placeholder='选择一个用户'
             onSearch={setSearchPhrase}
             onSelect={handleSelect}
             onBlur={onBlur}

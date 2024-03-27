@@ -134,8 +134,8 @@ export default function ProjectPageComponent(): JSX.Element {
             <Result
                 className='cvat-not-found'
                 status='404'
-                title='There was something wrong during getting the project'
-                subTitle='Please, be sure, that information you tried to get exist and you are eligible to access it'
+                title='获取项目时出现问题'
+                subTitle='请确保您尝试获取的信息存在并且您有资格访问它'
             />
         );
     }
@@ -186,7 +186,7 @@ export default function ProjectPageComponent(): JSX.Element {
             </Row>
         </>
     ) : (
-        <Empty description='No tasks found' />
+        <Empty description='暂无数据' />
     );
 
     return (
@@ -214,7 +214,7 @@ export default function ProjectPageComponent(): JSX.Element {
                         }).catch((error: Error) => {
                             if (mounted.current) {
                                 notification.error({
-                                    message: 'Could not update the project',
+                                    message: '无法更新项目',
                                     description: error.toString(),
                                 });
                             }
@@ -298,7 +298,7 @@ export default function ProjectPageComponent(): JSX.Element {
                                             className='cvat-create-task-button'
                                             onClick={() => history.push(`/tasks/create?projectId=${id}`)}
                                         >
-                                            Create a new task
+                                            创建新任务
                                         </Button>
                                         <Button
                                             type='primary'
@@ -306,7 +306,7 @@ export default function ProjectPageComponent(): JSX.Element {
                                             className='cvat-create-multi-tasks-button'
                                             onClick={() => history.push(`/tasks/create?projectId=${id}&many=true`)}
                                         >
-                                            Create multi tasks
+                                            创建多任务
                                         </Button>
                                     </CvatDropdownMenuPaper>
                                 )}

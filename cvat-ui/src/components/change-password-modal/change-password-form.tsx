@@ -86,7 +86,7 @@ function ChangePasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element
                     loading={fetching}
                     disabled={fetching}
                 >
-                    Submit
+                    提交
                 </Button>
             </Form.Item>
         </Form>

@@ -50,7 +50,7 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                             }}
                             defaultValue={query.search || ''}
                             className='cvat-webhooks-page-search-bar'
-                            placeholder='Search ...'
+                            placeholder='搜索 ...'
                         />
                         <div>
                             <SortingComponent

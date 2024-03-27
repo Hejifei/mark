@@ -158,7 +158,7 @@ class GlobalErrorBoundary extends React.PureComponent<Props, State> {
                                             }}
                                         >
                                             {' '}
-                                            Copy
+                                            复制
                                             {' '}
                                         </a>
                                     </CVATTooltip>

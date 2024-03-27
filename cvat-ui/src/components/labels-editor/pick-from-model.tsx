@@ -64,8 +64,8 @@ function PickFromModelComponent(props: Props): JSX.Element {
             ) : (
                 <Empty description={(
                     <>
-                        <Text>No deployed models found</Text>
-                        <Button type='primary' onClick={onCancel}>Cancel</Button>
+                        <Text>未找到已部署的模型</Text>
+                        <Button type='primary' onClick={onCancel}>取消</Button>
                     </>
                 )}
                 />
@@ -73,7 +73,7 @@ function PickFromModelComponent(props: Props): JSX.Element {
 
             <div className='cvat-label-constructor-pick-from-model-list'>
                 { !!selectedModel && !labels.length && (
-                    <Empty description='Labels not found in the specified model' />
+                    <Empty description='在指定型号中找不到标签' />
                 )}
                 {labels.map((label) => (
                     <Button

@@ -96,7 +96,7 @@ export const config: Partial<Config> = {
 export const localStorageRecentCapacity = 10;
 export const localStorageRecentKeyword = 'recentlyAppliedProjectTasksFilters';
 export const predefinedFilterValues = {
-    'Assigned to me': '{"and":[{"==":[{"var":"assignee"},"<username>"]}]}',
-    'Owned by me': '{"and":[{"==":[{"var":"owner"},"<username>"]}]}',
-    'Not completed': '{"!":{"and":[{"==":[{"var":"status"},"completed"]}]}}',
+    '指派给我': '{"and":[{"==":[{"var":"assignee"},"<username>"]}]}',
+    '我创建': '{"and":[{"==":[{"var":"owner"},"<username>"]}]}',
+    '未完成': '{"!":{"and":[{"==":[{"var":"status"},"completed"]}]}}',
 };

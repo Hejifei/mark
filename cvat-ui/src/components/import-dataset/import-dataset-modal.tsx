@@ -124,8 +124,7 @@ function ImportDatasetModal(props: StateToProps): JSX.Element {
     useEffect(() => {
         setHelpMessage(
             // eslint-disable-next-line prefer-template
-            `Import from ${(defaultStorageLocation) ? defaultStorageLocation.split('_')[0] : 'local'} ` +
-            `storage ${(defaultStorageCloudId) ? `№${defaultStorageCloudId}` : ''}`,
+            `将备份导出到本地存储`,
         );
     }, [defaultStorageLocation, defaultStorageCloudId]);
 
@@ -171,7 +170,7 @@ function ImportDatasetModal(props: StateToProps): JSX.Element {
                 <p className='ant-upload-drag-icon'>
                     <InboxOutlined />
                 </p>
-                <p className='ant-upload-text'>Click or drag file to this area</p>
+                <p className='ant-upload-text'>点击或拖拽文件到此区域</p>
             </Upload.Dragger>
         </Form.Item>
     );
@@ -291,15 +290,15 @@ function ImportDatasetModal(props: StateToProps): JSX.Element {
                 title={(
                     <>
                         <Text strong>
-                            {`Import ${resource} to ${instanceType}`}
+                            {`导入 ${resource?.replace('annotation', '注解')?.replace('dataset', '数据集')} 到 ${instanceType}`}
                         </Text>
                         {
                             instance instanceof core.classes.Project && (
                                 <CVATTooltip
                                     title={
                                         instance && !instance.labels.length ?
-                                            'Labels will be imported from dataset' :
-                                            'Labels from project will be used'
+                                            '标签将从数据集中导入' :
+                                            '将使用项目中的标签'
                                     }
                                 >
                                     <QuestionCircleOutlined className='cvat-modal-import-header-question-icon' />
@@ -311,11 +310,13 @@ function ImportDatasetModal(props: StateToProps): JSX.Element {
                 visible={!!instance}
                 onCancel={closeModal}
                 onOk={() => form.submit()}
+                okText={'确定'}
+                cancelText={'取消'}
                 className='cvat-modal-import-dataset'
                 destroyOnClose
             >
                 <Form
-                    name={`Import ${resource}`}
+                    name={`导入 ${resource}`}
                     form={form}
                     initialValues={{
                         ...initialValues,
@@ -326,12 +327,12 @@ function ImportDatasetModal(props: StateToProps): JSX.Element {
                 >
                     <Form.Item
                         name='selectedFormat'
-                        label='Import format'
+                        label='导入格式'
                         rules={[{ required: true, message: 'Format must be selected' }]}
                         hasFeedback
                     >
                         <Select
-                            placeholder={`Select ${resource} format`}
+                            placeholder={`选择 ${resource?.replace('annotation', '注解')?.replace('dataset', '数据集')} 格式`}
                             className='cvat-modal-import-select'
                             virtual={false}
                             onChange={(format: string) => {
@@ -388,8 +389,8 @@ function ImportDatasetModal(props: StateToProps): JSX.Element {
                                 }}
                             />
                         </Form.Item>
-                        <Text strong>Convert masks to polygons</Text>
-                        <CVATTooltip title='The option is relevant for formats that work with masks only'>
+                        <Text strong>将标注结果转换为多边形</Text>
+                        <CVATTooltip title='该选项与仅使用标注的格式相关'>
                             <QuestionCircleOutlined />
                         </CVATTooltip>
                     </Space>
@@ -409,7 +410,7 @@ function ImportDatasetModal(props: StateToProps): JSX.Element {
                                 }}
                             />
                         </Form.Item>
-                        <Text strong>Use default settings</Text>
+                        <Text strong>使用默认设置</Text>
                         <CVATTooltip title={helpMessage}>
                             <QuestionCircleOutlined />
                         </CVATTooltip>

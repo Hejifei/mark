@@ -288,7 +288,7 @@ function FiltersModalComponent(): JSX.Element {
                     onClick={() => dispatch(showFilters(false))}
                     className='cvat-filters-modal-cancel-button'
                 >
-                    Cancel
+                    取消
                 </Button>,
                 <Button
                     key='submit'
@@ -297,7 +297,7 @@ function FiltersModalComponent(): JSX.Element {
                     onClick={confirmModal}
                     className='cvat-filters-modal-submit-button'
                 >
-                    Submit
+                    提交
                 </Button>,
             ]}
         >

@@ -96,7 +96,7 @@ export default function ProjectItemComponent(props: Props): JSX.Element {
                             <div>
                                 {ownerName && (
                                     <>
-                                        <Text type='secondary'>{`创建人 ${ownerName ? `${ownerName}` : ''}`}</Text>
+                                        <Text type='secondary'>{`作者 ${ownerName ? `${ownerName}` : ''}`}</Text>
                                         <br />
                                     </>
                                 )}

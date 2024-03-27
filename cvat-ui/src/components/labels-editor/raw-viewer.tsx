@@ -239,7 +239,7 @@ export default class RawViewer extends React.PureComponent<Props> {
                                 type='primary'
                                 htmlType='submit'
                             >
-                                Done
+                                完成
                             </Button>
                         </CVATTooltip>
                     </Col>
@@ -256,7 +256,7 @@ export default class RawViewer extends React.PureComponent<Props> {
                                     }
                                 }}
                             >
-                                Reset
+                                取消
                             </Button>
                         </CVATTooltip>
                     </Col>

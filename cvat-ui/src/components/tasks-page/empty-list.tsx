@@ -33,13 +33,13 @@ function EmptyListComponent(props: Props): JSX.Element {
                     </Row>
                     <Row justify='center' align='middle'>
                         <Col>
-                            <Link to='/tasks/create'>create a new task</Link>
-                            <Text type='secondary'> or try to </Text>
-                            <Link to='/projects/create'>create a new project</Link>
+                            <Link to='/tasks/create'>添加任务</Link>
+                            <Text type='secondary'> 或试着 </Text>
+                            <Link to='/projects/create'>添加新项目</Link>
                         </Col>
                     </Row>
                 </>
-            ) : (<Text>No results matched your search</Text>)}
+            ) : (<Text>暂无数据</Text>)}
             />
         </div>
     );

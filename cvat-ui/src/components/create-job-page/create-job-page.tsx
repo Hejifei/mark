@@ -54,7 +54,7 @@ function CreateJobPage(): JSX.Element {
         <div className='cvat-create-job-page'>
             <Row justify='center' align='middle'>
                 <Col>
-                    <Text className='cvat-title'>Add a new job</Text>
+                    <Text className='cvat-title'>添加新工作</Text>
                 </Col>
             </Row>
             {

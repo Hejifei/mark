@@ -23,15 +23,15 @@ function ConstructorViewer(props: ConstructorViewerProps): JSX.Element {
     } = props;
     const list = [
         <Button key='create' type='ghost' onClick={() => onCreate('basic')} className='cvat-constructor-viewer-new-item'>
-            Add label
+            添加标签
             <PlusCircleOutlined />
         </Button>,
         <Button key='create_skeleton' type='ghost' onClick={() => onCreate('skeleton')} className='cvat-constructor-viewer-new-skeleton-item'>
-            Setup skeleton
+            设置骨架
             <PlusCircleOutlined />
         </Button>,
         <Button key='from_model' type='ghost' onClick={() => onCreate('model')} className='cvat-constructor-viewer-new-from-model-item'>
-            From model
+            来自型号
             <PlusCircleOutlined />
         </Button>,
     ];

@@ -252,7 +252,7 @@ function JobListComponent(props: Props): JSX.Element {
         <div className='cvat-task-job-list'>
             <Row justify='space-between' align='middle'>
                 <Col>
-                    <Text className='cvat-text-color cvat-jobs-header'> Jobs </Text>
+                    <Text className='cvat-text-color cvat-jobs-header'> 工作 </Text>
                 </Col>
             </Row>
             <Table

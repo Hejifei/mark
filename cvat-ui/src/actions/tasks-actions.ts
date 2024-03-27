@@ -262,7 +262,7 @@ ThunkAction<Promise<void>, {}, {}, AnyAction> {
                 if (status === RQStatus.UNKNOWN) {
                     onProgress?.(`${message} ${progress ? `${Math.floor(progress * 100)}%` : ''}`);
                 } else if ([RQStatus.QUEUED, RQStatus.STARTED].includes(status)) {
-                    const helperMessage = 'You may close the window.';
+                    const helperMessage = '您可以关闭窗口.';
                     onProgress?.(`${message} ${progress ? `${Math.floor(progress * 100)}%` : ''}. ${helperMessage}`);
                 } else {
                     onProgress?.(`${status}: ${message}`);

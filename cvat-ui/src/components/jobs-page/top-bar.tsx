@@ -40,7 +40,7 @@ function TopBarComponent(props: Props): JSX.Element {
                         }}
                         defaultValue={query.search || ''}
                         className='cvat-jobs-page-search-bar'
-                        placeholder='Search ...'
+                        placeholder='搜索 ...'
                     />
                     <div>
                         <SortingComponent

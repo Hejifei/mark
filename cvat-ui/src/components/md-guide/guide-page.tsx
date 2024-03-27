@@ -181,7 +181,7 @@ function GuidePage(): JSX.Element {
                         disabled={fetching || !guide.id}
                         onClick={() => submit(value)}
                     >
-                        Submit
+                        提交
                     </Button>
                 </Space>
             </Col>

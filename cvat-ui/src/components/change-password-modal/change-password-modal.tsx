@@ -52,7 +52,7 @@ function ChangePasswordComponent(props: ChangePasswordPageComponentProps): JSX.E
             className='cvat-modal-change-password'
             title={<Title level={3}>Change password</Title>}
             okType='primary'
-            okText='Submit'
+            okText='提交'
             footer={null}
             visible={visible}
             destroyOnClose

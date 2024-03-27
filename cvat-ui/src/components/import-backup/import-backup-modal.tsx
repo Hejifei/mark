@@ -76,7 +76,7 @@ function ImportBackupModal(): JSX.Element {
                 <p className='ant-upload-drag-icon'>
                     <InboxOutlined />
                 </p>
-                <p className='ant-upload-text'>Click or drag file to this area</p>
+                <p className='ant-upload-text'>点击或拖拽文件到此区域</p>
             </Upload.Dragger>
         </Form.Item>
     );
@@ -142,13 +142,15 @@ function ImportBackupModal(): JSX.Element {
         <Modal
             title={(
                 <Text strong>
-                    {`Create ${instanceType} from backup`}
+                    {`从备份创建 ${instanceType?.replace('task', '任务')} `}
                 </Text>
             )}
             visible={modalVisible}
             onCancel={closeModal}
             onOk={() => form.submit()}
             className='cvat-modal-import-backup'
+            okText='确定'
+            cancelText='取消'
         >
             <Form
                 name={`Create ${instanceType} from backup file`}

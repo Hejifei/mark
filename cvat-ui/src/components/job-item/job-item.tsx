@@ -120,7 +120,7 @@ function JobItem(props: Props): JSX.Element {
                     <Col span={7}>
                         <Row>
                             <Col>
-                                <Link to={`/tasks/${job.taskId}/jobs/${job.id}`}>{`Job #${job.id}`}</Link>
+                                <Link to={`/tasks/${job.taskId}/jobs/${job.id}`}>{`工作 #${job.id}`}</Link>
                             </Col>
                             {
                                 job.type === JobType.GROUND_TRUTH && (
@@ -132,14 +132,14 @@ function JobItem(props: Props): JSX.Element {
                         </Row>
                         <Row className='cvat-job-item-dates-info'>
                             <Col>
-                                <Text>Created on </Text>
-                                <Text type='secondary'>{`${created.format('MMMM Do YYYY HH:mm')}`}</Text>
+                                <Text>创建于 </Text>
+                                <Text type='secondary'>{`${created.format('YYYY-MM-DD HH:mm')}`}</Text>
                             </Col>
                         </Row>
                         <Row>
                             <Col>
-                                <Text>Last updated </Text>
-                                <Text type='secondary'>{`${updated.format('MMMM Do YYYY HH:mm')}`}</Text>
+                                <Text>最近更新时间 </Text>
+                                <Text type='secondary'>{`${updated.format('YYYY-MM-DD HH:mm')}`}</Text>
                             </Col>
                         </Row>
                     </Col>
@@ -149,7 +149,7 @@ function JobItem(props: Props): JSX.Element {
                                 <Row>
                                     <Col className='cvat-job-item-select'>
                                         <Row>
-                                            <Text>Assignee:</Text>
+                                            <Text>受让人:</Text>
                                         </Row>
                                         <UserSelector
                                             className='cvat-job-assignee-selector'
@@ -164,7 +164,7 @@ function JobItem(props: Props): JSX.Element {
                                     <Col className='cvat-job-item-select'>
                                         <Row justify='space-between' align='middle'>
                                             <Col>
-                                                <Text>Stage:</Text>
+                                                <Text>阶段:</Text>
                                             </Col>
                                             <Col>
                                                 <CVATTooltip title={<ReviewSummaryComponent jobInstance={job} />}>
@@ -181,13 +181,13 @@ function JobItem(props: Props): JSX.Element {
                                             }}
                                         >
                                             <Select.Option value={JobStage.ANNOTATION}>
-                                                {JobStage.ANNOTATION}
+                                                注解
                                             </Select.Option>
                                             <Select.Option value={JobStage.VALIDATION}>
-                                                {JobStage.VALIDATION}
+                                                验证
                                             </Select.Option>
                                             <Select.Option value={JobStage.ACCEPTANCE}>
-                                                {JobStage.ACCEPTANCE}
+                                                验收
                                             </Select.Option>
                                         </Select>
                                     </Col>
@@ -201,7 +201,7 @@ function JobItem(props: Props): JSX.Element {
                                 <Row>
                                     <Col>
                                         <ProjectOutlined />
-                                        <Text>State: </Text>
+                                        <Text>状态: </Text>
                                         <Text type='secondary' className='cvat-job-item-state'>
                                             {`${job.state.charAt(0).toUpperCase() + job.state.slice(1)}`}
                                         </Text>
@@ -210,7 +210,7 @@ function JobItem(props: Props): JSX.Element {
                                 <Row>
                                     <Col>
                                         <Icon component={DurationIcon} />
-                                        <Text>Duration: </Text>
+                                        <Text>期间: </Text>
                                         <Text type='secondary'>{`${moment.duration(now.diff(created)).humanize()}`}</Text>
                                     </Col>
                                 </Row>
@@ -221,7 +221,7 @@ function JobItem(props: Props): JSX.Element {
                                         <Row>
                                             <Col>
                                                 <Icon component={FramesIcon} />
-                                                <Text>Frame range: </Text>
+                                                <Text>帧范围: </Text>
                                                 <Text type='secondary' className='cvat-job-item-frame-range'>
                                                     {`${job.startFrame}-${job.stopFrame}`}
                                                 </Text>
@@ -232,7 +232,7 @@ function JobItem(props: Props): JSX.Element {
                                 <Row>
                                     <Col>
                                         <BorderOutlined />
-                                        <Text>Frame count: </Text>
+                                        <Text>帧数: </Text>
                                         <Text type='secondary' className='cvat-job-item-frames'>
                                             {`${job.frameCount} (${frameCountPercentRepresentation}%)`}
                                         </Text>

@@ -58,6 +58,7 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
         id, description, updatedDate, createdDate, owner, targetURL, events,
     } = webhookInstance;
 
+    moment.locale('zh-cn')
     const updated = moment(updatedDate).fromNow();
     const created = moment(createdDate).format('MMMM Do YYYY');
     const username = owner ? owner.username : null;
@@ -95,11 +96,11 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                 </Paragraph>
                 {username && (
                     <>
-                        <Text type='secondary'>{`Created by ${username} on ${created}`}</Text>
+                        <Text type='secondary'>{`${username} 创建于 ${created}`}</Text>
                         <br />
                     </>
                 )}
-                <Text type='secondary'>{`Last updated ${updated}`}</Text>
+                <Text type='secondary'>{`最新更新时间 ${updated}`}</Text>
             </Col>
             <Col span={6} offset={1}>
                 <Paragraph ellipsis={{
@@ -107,7 +108,7 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                     rows: 3,
                 }}
                 >
-                    <Text type='secondary' className='cvat-webhook-info-text'>URL:</Text>
+                    <Text type='secondary' className='cvat-webhook-info-text'>网址:</Text>
                     {targetURL}
                 </Paragraph>
             </Col>
@@ -117,7 +118,7 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                     rows: 3,
                 }}
                 >
-                    <Text type='secondary' className='cvat-webhook-info-text'>Events:</Text>
+                    <Text type='secondary' className='cvat-webhook-info-text'>事件:</Text>
                     {eventsList}
                 </Paragraph>
             </Col>
@@ -159,16 +160,18 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                                             return false;
                                         }}
                                     >
-                                        Edit
+                                        编辑
                                     </a>
                                 </Menu.Item>
                                 <Menu.Item
                                     key='delete'
                                     onClick={() => {
                                         Modal.confirm({
-                                            title: 'Are you sure you want to remove the hook?',
-                                            content: 'It will stop notificating the specified URL about listed events',
+                                            title: '是否确认删除?',
+                                            content: '它将停止通知指定的 URL 有关列出的事件',
                                             className: 'cvat-modal-confirm-remove-webhook',
+                                            okText: '确定',
+                                            cancelText: '取消',
                                             onOk: () => {
                                                 dispatch(deleteWebhookAsync(webhookInstance)).then(() => {
                                                     setIsRemoved(true);
@@ -177,13 +180,13 @@ function WebhookItem(props: WebhookItemProps): JSX.Element | null {
                                         });
                                     }}
                                 >
-                                    Delete
+                                    删除
                                 </Menu.Item>
                             </Menu>
                         )}
                         >
                             <div className='cvat-webhooks-page-actions-button'>
-                                <Text className='cvat-text-color'>Actions</Text>
+                                <Text className='cvat-text-color'>操作</Text>
                                 <MoreOutlined className='cvat-menu-icon' />
                             </div>
                         </Dropdown>

@@ -325,11 +325,7 @@ function RemoteBrowser(props: Props): JSX.Element {
             <>
                 <Empty />
                 <Paragraph className='cvat-remote-browser-empty'>
-                    Please, be sure you had
-                    <Text strong>
-                        <a href={SHARE_MOUNT_GUIDE_URL}> mounted </a>
-                    </Text>
-                    share before you built CVAT and the shared storage contains files
+                请确保在构建 标注平台 之前已安装共享并且共享存储包含文件
                 </Paragraph>
             </>
         );

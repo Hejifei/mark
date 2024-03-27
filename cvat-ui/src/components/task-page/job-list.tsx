@@ -100,9 +100,9 @@ function JobListComponent(props: Props): JSX.Element {
             <div className='cvat-jobs-list-filters-wrapper'>
                 <Row>
                     <Col>
-                        <Text className='cvat-text-color cvat-jobs-header'> Jobs </Text>
+                        <Text className='cvat-text-color cvat-jobs-header'> 工作 </Text>
                     </Col>
-                    <CVATTooltip trigger='click' title='Copied to clipboard!'>
+                    <CVATTooltip trigger='click' title='C已复制到剪贴板！'>
                         <Button
                             className='cvat-copy-job-details-button'
                             type='link'
@@ -131,7 +131,7 @@ function JobListComponent(props: Props): JSX.Element {
                             }}
                         >
                             <CopyOutlined />
-                            Copy
+                            复制
                         </Button>
                     </CVATTooltip>
                 </Row>
@@ -205,7 +205,7 @@ function JobListComponent(props: Props): JSX.Element {
                         </Row>
                     </>
                 ) : (
-                    <Empty description='No jobs found' />
+                    <Empty description='暂无数据' />
                 )
             }
         </>

@@ -228,7 +228,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
     private renderSortingMethodRadio(): JSX.Element {
         return (
             <Form.Item
-                label='Sorting method'
+                label='排序方式 '
                 name='sortingMethod'
                 rules={[
                     {
@@ -236,17 +236,17 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
                         message: 'The field is required.',
                     },
                 ]}
-                help='Specify how to sort images. It is not relevant for videos.'
+                help='指定如何对图像进行排序。 与视频无关.'
             >
                 <Radio.Group buttonStyle='solid'>
                     <Radio.Button value={SortingMethod.LEXICOGRAPHICAL} key={SortingMethod.LEXICOGRAPHICAL}>
-                        Lexicographical
+                    词典编法
                     </Radio.Button>
-                    <Radio.Button value={SortingMethod.NATURAL} key={SortingMethod.NATURAL}>Natural</Radio.Button>
+                    <Radio.Button value={SortingMethod.NATURAL} key={SortingMethod.NATURAL}>自然的</Radio.Button>
                     <Radio.Button value={SortingMethod.PREDEFINED} key={SortingMethod.PREDEFINED}>
-                        Predefined
+                    预定义
                     </Radio.Button>
-                    <Radio.Button value={SortingMethod.RANDOM} key={SortingMethod.RANDOM}>Random</Radio.Button>
+                    <Radio.Button value={SortingMethod.RANDOM} key={SortingMethod.RANDOM}>随机的</Radio.Button>
                 </Radio.Group>
             </Form.Item>
         );
@@ -256,12 +256,12 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
         return (
             <CVATTooltip title='Defines images compression level'>
                 <Form.Item
-                    label='Image quality'
+                    label='图片质量'
                     name='imageQuality'
                     rules={[
                         {
                             required: true,
-                            message: 'The field is required.',
+                            message: '该字段为必填项.',
                         },
                         { validator: isInteger({ min: 5, max: 100 }) },
                     ]}
@@ -276,7 +276,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
         return (
             <CVATTooltip title='Defines a number of intersected frames between different segments'>
                 <Form.Item
-                    label='Overlap size'
+                    label='重叠尺寸'
                     name='overlapSize'
                     dependencies={['segmentSize']}
                     rules={[{ validator: isInteger({ min: 0 }) }, validateOverlapSize]}
@@ -289,8 +289,8 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
 
     private renderSegmentSize(): JSX.Element {
         return (
-            <CVATTooltip title='Defines a number of frames in a segment'>
-                <Form.Item label='Segment size' name='segmentSize' rules={[{ validator: isInteger({ min: 1 }) }]}>
+            <CVATTooltip title='定义一个段中的帧数'>
+                <Form.Item label='刀头尺寸' name='segmentSize' rules={[{ validator: isInteger({ min: 1 }) }]}>
                     <Input size='large' type='number' min={1} />
                 </Form.Item>
             </CVATTooltip>
@@ -299,7 +299,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
 
     private renderStartFrame(): JSX.Element {
         return (
-            <Form.Item label='Start frame' name='startFrame' rules={[{ validator: isInteger({ min: 0 }) }]}>
+            <Form.Item label='起始帧' name='startFrame' rules={[{ validator: isInteger({ min: 0 }) }]}>
                 <Input size='large' type='number' min={0} step={1} />
             </Form.Item>
         );
@@ -308,7 +308,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
     private renderStopFrame(): JSX.Element {
         return (
             <Form.Item
-                label='Stop frame'
+                label='结束帧'
                 name='stopFrame'
                 dependencies={['startFrame']}
                 rules={[{ validator: isInteger({ min: 0 }) }, validateStopFrame]}
@@ -320,7 +320,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
 
     private renderFrameStep(): JSX.Element {
         return (
-            <Form.Item label='Frame step' name='frameStep' rules={[{ validator: isInteger({ min: 1 }) }]}>
+            <Form.Item label='框架步骤' name='frameStep' rules={[{ validator: isInteger({ min: 1 }) }]}>
                 <Input size='large' type='number' min={1} step={1} />
             </Form.Item>
         );
@@ -331,8 +331,8 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
             <Form.Item
                 hasFeedback
                 name='bugTracker'
-                label='Issue tracker'
-                extra='Attach issue tracker where the task is described'
+                label='问题跟踪器'
+                extra='在描述任务的地方附加问题跟踪器'
                 rules={[{ validator: validateURL }]}
             >
                 <Input size='large' />
@@ -350,8 +350,8 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
                 >
                     <Switch />
                 </Form.Item>
-                <Text className='cvat-text-color'>Prefer zip chunks</Text>
-                <Tooltip title='ZIP chunks have better quality, but they require more disk space and time to download. Relevant for video only'>
+                <Text className='cvat-text-color'>偏好 zip 切片</Text>
+                <Tooltip title='ZIP 块具有更好的质量，但需要更多的磁盘空间和下载时间。 仅与视频相关'>
                     <QuestionCircleOutlined style={{ opacity: 0.5 }} />
                 </Tooltip>
             </Space>
@@ -368,8 +368,8 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
                 >
                     <Switch defaultChecked />
                 </Form.Item>
-                <Text className='cvat-text-color'>Use cache</Text>
-                <Tooltip title='Using cache to store data.'>
+                <Text className='cvat-text-color'>使用缓存</Text>
+                <Tooltip title='使用缓存来存储数据.'>
                     <QuestionCircleOutlined style={{ opacity: 0.5 }} />
                 </Tooltip>
             </Space>
@@ -396,7 +396,7 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
                     </>
                 )}
             >
-                <Form.Item label='Chunk size' name='dataChunkSize' rules={[{ validator: isInteger({ min: 1 }) }]}>
+                <Form.Item label='切片数' name='dataChunkSize' rules={[{ validator: isInteger({ min: 1 }) }]}>
                     <Input size='large' type='number' />
                 </Form.Item>
             </CVATTooltip>
@@ -415,8 +415,8 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
             <SourceStorageField
                 instanceId={projectId}
                 locationValue={sourceStorageLocation}
-                switchDescription='Use project source storage'
-                storageDescription='Specify source storage for import resources like annotation, backups'
+                switchDescription='使用项目源存储'
+                storageDescription='指定导入资源（如注释、备份）的源存储'
                 useDefaultStorage={useProjectSourceStorage}
                 onChangeUseDefaultStorage={onChangeUseProjectSourceStorage}
                 onChangeLocationValue={onChangeSourceStorageLocation}
@@ -436,8 +436,8 @@ class AdvancedConfigurationForm extends React.PureComponent<Props> {
             <TargetStorageField
                 instanceId={projectId}
                 locationValue={targetStorageLocation}
-                switchDescription='Use project target storage'
-                storageDescription='Specify target storage for export resources like annotation, backups                '
+                switchDescription='使用项目目标存储'
+                storageDescription='指定导出资源（如注释、备份）的目标存储'
                 useDefaultStorage={useProjectTargetStorage}
                 onChangeUseDefaultStorage={onChangeUseProjectTargetStorage}
                 onChangeLocationValue={onChangeTargetStorageLocation}

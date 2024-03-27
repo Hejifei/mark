@@ -46,6 +46,7 @@ export enum MenuActions {
 
 function OrganizationTopBar(props: Props): JSX.Element {
     const { organizationInstance, userInstance, fetchMembers } = props;
+    moment.locale('zh-cn')
     const {
         owner, createdDate, description, updatedDate, slug, name, contact,
     } = organizationInstance;
@@ -199,7 +200,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                         setEditingDescription(false);
                                     }}
                                 >
-                                    Submit
+                                    提交
                                 </Button>
                             </div>
                         )}
@@ -267,8 +268,8 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                 {contact.location}
                             </Text>
                         </div>
-                        <Text type='secondary'>{`Created ${moment(createdDate).format('MMMM Do YYYY')}`}</Text>
-                        <Text type='secondary'>{`Updated ${moment(updatedDate).fromNow()}`}</Text>
+                        <Text type='secondary'>{`创建于 ${moment(createdDate).format('YYYY-MM-DD')}`}</Text>
+                        <Text type='secondary'>{`更新于 ${moment(updatedDate).fromNow()}`}</Text>
                     </div>
                 </Col>
                 <Col span={12} className='cvat-organization-top-bar-buttons-block'>

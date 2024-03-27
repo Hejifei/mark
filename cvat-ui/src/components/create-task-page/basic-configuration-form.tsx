@@ -76,11 +76,11 @@ export default class BasicConfigurationForm extends React.PureComponent<Props> {
                 <Form.Item
                     hasFeedback
                     name='name'
-                    label={<span>Name</span>}
+                    label={<span>任务名称</span>}
                     rules={[
                         {
                             required: true,
-                            message: 'Task name cannot be empty',
+                            message: '请输入任务名称',
                         },
                     ]}
                     initialValue={this.initialName}
@@ -94,32 +94,32 @@ export default class BasicConfigurationForm extends React.PureComponent<Props> {
                     <Text type='secondary'>
                         <Tooltip title={() => (
                             <>
-                                You can substitute in the template:
+                                您可以在模板中替换:
                                 <ul>
                                     <li>
-                                        some_text - any text
+                                        一些文字 - 任意文字
                                     </li>
                                     <li>
                                         {'{{'}
-                                        index
+                                        索引
                                         {'}}'}
-                                        &nbsp;- index file in set
+                                        &nbsp;- 集合中的索引文件
                                     </li>
                                     <li>
                                         {'{{'}
-                                        file_name
+                                        文件名
                                         {'}}'}
-                                        &nbsp;- name of file
+                                        &nbsp;- 文件的名称
                                     </li>
                                 </ul>
-                                Example:&nbsp;
+                                示例:&nbsp;
                                 <i>
                                     {exampleMultiTaskName || 'Task name 1 - video_1.mp4'}
                                 </i>
                             </>
                         )}
                         >
-                            When forming the name, a template is used.
+                            使用以下模板生成名称.
                             {' '}
                             <QuestionCircleOutlined />
                         </Tooltip>

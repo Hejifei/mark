@@ -226,9 +226,9 @@ function AnalyticsPage(): JSX.Element {
                 title = (
                     <Col className='cvat-project-analytics-title'>
                         <Title level={4} className='cvat-text-color'>
-                            Analytics for
+                            分析
                             {' '}
-                            <Link to={`/projects/${instance.id}`}>{`Project #${instance.id}`}</Link>
+                            <Link to={`/projects/${instance.id}`}>{`项目 #${instance.id}`}</Link>
                         </Title>
                     </Col>
                 );
@@ -260,9 +260,9 @@ function AnalyticsPage(): JSX.Element {
                 title = (
                     <Col className='cvat-task-analytics-title'>
                         <Title level={4} className='cvat-text-color'>
-                            Analytics for
+                            分析
                             {' '}
-                            <Link to={`/tasks/${instance.id}`}>{`Task #${instance.id}`}</Link>
+                            <Link to={`/tasks/${instance.id}`}>{`任务 #${instance.id}`}</Link>
                         </Title>
                     </Col>
                 );
@@ -305,9 +305,9 @@ function AnalyticsPage(): JSX.Element {
                 title = (
                     <Col className='cvat-job-analytics-title'>
                         <Title level={4} className='cvat-text-color'>
-                            Analytics for
+                            分析
                             {' '}
-                            <Link to={`/tasks/${instance.taskId}/jobs/${instance.id}`}>{`Job #${instance.id}`}</Link>
+                            <Link to={`/tasks/${instance.taskId}/jobs/${instance.id}`}>{`工作 #${instance.id}`}</Link>
                         </Title>
                     </Col>
                 );
@@ -316,7 +316,7 @@ function AnalyticsPage(): JSX.Element {
                         <Tabs.TabPane
                             tab={(
                                 <span>
-                                    <Text>Performance</Text>
+                                    <Text>表现</Text>
                                 </span>
                             )}
                             key='overview'

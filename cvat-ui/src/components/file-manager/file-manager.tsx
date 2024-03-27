@@ -125,7 +125,7 @@ export class FileManager extends React.PureComponent<Props, State> {
         const { files } = this.state;
 
         return (
-            <Tabs.TabPane className='cvat-file-manager-local-tab' key='local' tab='My computer'>
+            <Tabs.TabPane className='cvat-file-manager-local-tab' key='local' tab='电脑本地'>
                 <LocalFiles
                     files={files.local}
                     many={many}
@@ -146,7 +146,7 @@ export class FileManager extends React.PureComponent<Props, State> {
 
     private renderShareSelector(): JSX.Element {
         return (
-            <Tabs.TabPane key='share' tab='Connected file share'>
+            <Tabs.TabPane key='share' tab='连接的文件共享'>
                 <RemoteBrowser
                     resource='share'
                     onSelectFiles={this.handleUploadSharedStorageFiles}
@@ -160,10 +160,10 @@ export class FileManager extends React.PureComponent<Props, State> {
         const { files } = this.state;
 
         return (
-            <Tabs.TabPane key='remote' tab='Remote sources'>
+            <Tabs.TabPane key='remote' tab='远端数据源'>
                 <Input.TextArea
                     className='cvat-file-selector-remote'
-                    placeholder='Enter one URL per line'
+                    placeholder='每行输入一个 网站连接'
                     rows={6}
                     value={[...files.remote].join('\n')}
                     onChange={(event: React.ChangeEvent<HTMLTextAreaElement>): void => {
@@ -224,7 +224,7 @@ export class FileManager extends React.PureComponent<Props, State> {
                 {this.renderLocalSelector()}
                 {this.renderShareSelector()}
                 {this.renderRemoteSelector()}
-                {this.renderCloudStorageSelector()}
+                {/* {this.renderCloudStorageSelector()} */}
             </Tabs>
         );
     }

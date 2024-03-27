@@ -708,7 +708,7 @@ export default function CreateCloudStorageForm(props: Props): JSX.Element {
                         loading={loading}
                         disabled={loading}
                     >
-                        {cloudStorage ? 'Update' : 'Submit'}
+                        {cloudStorage ? '更新' : '提交'}
                     </Button>
                 </Col>
             </Row>

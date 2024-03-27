@@ -403,8 +403,8 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
         const { projectId } = this.state;
         if (!this.validateLabelsOrProject()) {
             notification.error({
-                message: 'Could not create a task',
-                description: 'A task must contain at least one label or belong to some project',
+                message: '新增失败',
+                description: '一项任务必须包含至少一个标签或属于某个项目',
                 className: 'cvat-notification-create-task-fail',
             });
             reject();
@@ -413,8 +413,8 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
 
         if (!this.validateFiles()) {
             notification.error({
-                message: 'Could not create a task',
-                description: 'A task must contain at least one file',
+                message: '新增失败',
+                description: '一项任务必须至少包含一个文件',
                 className: 'cvat-notification-create-task-fail',
             });
             reject();
@@ -449,7 +449,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
                             return Promise.resolve();
                         })
                         .catch((error: Error): void => {
-                            throw new Error(`Couldn't fetch the project ${projectId} ${error.toString()}`);
+                            throw new Error(`请求失败 ${projectId} ${error.toString()}`);
                         });
                 }
                 return Promise.resolve();
@@ -457,7 +457,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
             .then(resolve)
             .catch((error: Error | ValidateErrorEntity): void => {
                 notification.error({
-                    message: 'Could not create a task',
+                    message: '新增失败',
                     description: (error as ValidateErrorEntity).errorFields ?
                         (error as ValidateErrorEntity).errorFields
                             .map((field) => `${field.name} : ${field.errors.join(';')}`)
@@ -606,11 +606,11 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
                 const countAll = multiTasks.length;
 
                 notification.info({
-                    message: 'The tasks have been created',
+                    message: '任务已创建',
                     description:
-                        `Completed: ${countCompleted}, failed: ${countFailed},${countCancelled ?
-                            ` cancelled: ${countCancelled},` :
-                            ''} total: ${countAll}, `,
+                        `完成: ${countCompleted}, 失败: ${countFailed},${countCancelled ?
+                            ` 取消: ${countCancelled},` :
+                            ''} 总共: ${countAll}, `,
                     className: 'cvat-notification-create-task-success',
                 });
             });
@@ -710,7 +710,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
 
     private renderBasicBlock(): JSX.Element {
         const { many } = this.props;
-        const exampleMultiTaskName = many ? this.getTaskName(0, 'local', 'fileName.mp4') : '';
+        const exampleMultiTaskName = many ? this.getTaskName(0, 'local', '文件名.mp4') : '';
 
         return (
             <Col span={24}>
@@ -730,7 +730,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
         return (
             <>
                 <Col span={24}>
-                    <Text className='cvat-text-color'>Project</Text>
+                    <Text className='cvat-text-color'>项目名称</Text>
                 </Col>
                 <Col span={24}>
                     <ProjectSearchField onSelect={this.handleProjectIdChange} value={projectId} />
@@ -746,7 +746,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
             return (
                 <>
                     <Col span={24}>
-                        <Text className='cvat-text-color'>Subset</Text>
+                        <Text className='cvat-text-color'>子集</Text>
                     </Col>
                     <Col span={24}>
                         <ProjectSubsetField
@@ -769,10 +769,10 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
             return (
                 <>
                     <Col span={24}>
-                        <Text className='cvat-text-color'>Labels</Text>
+                        <Text className='cvat-text-color'>标签</Text>
                     </Col>
                     <Col span={24}>
-                        <Text type='secondary'>Project labels will be used</Text>
+                        <Text type='secondary'>将使用项目标签</Text>
                     </Col>
                 </>
             );
@@ -781,7 +781,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
         return (
             <Col span={24}>
                 <Text type='danger'>* </Text>
-                <Text className='cvat-text-color'>Labels</Text>
+                <Text className='cvat-text-color'>标签</Text>
                 <LabelsEditor
                     labels={labels}
                     onSubmit={(newLabels): void => {
@@ -802,7 +802,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
             <>
                 <Col span={24}>
                     <Text type='danger'>* </Text>
-                    <Text className='cvat-text-color'>Select files</Text>
+                    <Text className='cvat-text-color'>选择文件</Text>
                     <FileManagerComponent
                         many={many}
                         onChangeActiveKey={this.changeFileManagerTab}
@@ -887,7 +887,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
                         onClick={this.handleSubmitAndOpen}
                         disabled={!!uploadFileErrorMessage}
                     >
-                        Submit & Open
+                        提交并打开
                     </Button>
                 </Col>
                 <Col>
@@ -897,7 +897,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
                         onClick={this.handleSubmitAndContinue}
                         disabled={!!uploadFileErrorMessage}
                     >
-                        Submit & Continue
+                        提交并继续
                     </Button>
                 </Col>
             </Row>
@@ -938,9 +938,9 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
                         onClick={this.handleSubmitMultiTasks}
                         disabled={!!uploadFileErrorMessage}
                     >
-                        Submit&nbsp;
+                        提交&nbsp;
                         {currentFiles.length}
-                        &nbsp;tasks
+                        &nbsp;个任务
                     </Button>
                 </Col>
             </Row>
@@ -953,7 +953,7 @@ class CreateTaskContent extends React.PureComponent<Props & RouteComponentProps,
         return (
             <Row justify='start' align='middle' className='cvat-create-task-content'>
                 <Col span={24}>
-                    <Text className='cvat-title'>Basic configuration</Text>
+                    <Text className='cvat-title'>基础配置</Text>
                 </Col>
 
                 {this.renderBasicBlock()}

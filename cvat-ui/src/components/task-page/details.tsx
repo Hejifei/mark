@@ -120,6 +120,7 @@ class DetailsComponent extends React.PureComponent<Props, State> {
         const { task: taskInstance, onUpdateTask } = this.props;
         const owner = taskInstance.owner ? taskInstance.owner.username : null;
         const assignee = taskInstance.assignee ? taskInstance.assignee : null;
+        moment.locale('zh-cn')
         const created = moment(taskInstance.createdDate).format('MMMM Do YYYY');
         const assigneeSelect = (
             <UserSelector
@@ -136,11 +137,11 @@ class DetailsComponent extends React.PureComponent<Props, State> {
             <Row className='cvat-task-details-user-block' justify='space-between' align='middle'>
                 <Col span={12}>
                     {owner && (
-                        <Text type='secondary'>{`Task #${taskInstance.id} Created by ${owner} on ${created}`}</Text>
+                        <Text type='secondary'>{`任务 #${taskInstance.id} 由 ${owner} 创建于 ${created}`}</Text>
                     )}
                 </Col>
                 <Col>
-                    <Text type='secondary'>Assigned to</Text>
+                    <Text type='secondary'>指派给</Text>
                     {assigneeSelect}
                 </Col>
             </Row>

@@ -18,10 +18,10 @@ import AnalyticsCard from './views/analytics-card';
 const ReactGridLayout = WidthProvider(RGL);
 
 export enum DateIntervals {
-    LAST_WEEK = 'Last 7 days',
-    LAST_MONTH = 'Last 30 days',
-    LAST_QUARTER = 'Last 90 days',
-    LAST_YEAR = 'Last year',
+    LAST_WEEK = '最近7天',
+    LAST_MONTH = '最近30天',
+    LAST_QUARTER = '最近90天',
+    LAST_YEAR = '最近一年',
 }
 
 interface Props {
@@ -39,7 +39,7 @@ const colors = [
 
 function AnalyticsOverview(props: Props): JSX.Element | null {
     const { report, onTimePeriodChange } = props;
-
+    moment.locale('zh-cn')
     if (!report) return null;
     const layout: any = [];
     let histogramCount = 0;
@@ -64,11 +64,14 @@ function AnalyticsOverview(props: Props): JSX.Element | null {
                 });
                 numericCount += 1;
                 const { value } = entry.dataSeries[Object.keys(entry.dataSeries)[0]][0];
-
                 views.push({
                     view: (
                         <AnalyticsCard
-                            title={entry.title}
+                            title={entry.title
+                                .replace('Annotation time (hours)', '注释时间（小时）')
+                                .replace('Total Object Count', '对象总数')
+                                .replace('Total Annotation Speed (objects per hour)', '总注释速度（对象/小时）')
+                            }
                             tooltip={tooltip}
                             value={typeof value === 'number' ? value.toFixed(1) : 0}
                             key={entry.name}
@@ -88,8 +91,14 @@ function AnalyticsOverview(props: Props): JSX.Element | null {
                 const { dataSeries } = entry;
                 let colorIndex = -1;
                 const datasets = Object.entries(dataSeries).map(([key, series]) => {
-                    let label = key.split('_').join(' ');
-                    label = label.charAt(0).toUpperCase() + label.slice(1);
+                    let label = key
+                        .split('_')
+                        .join(' ')
+                        .replace('annotation speed', '注释速度')
+                        .replace('created', '添加')
+                        .replace('deleted', '删除')
+                        .replace('updated', '更新');
+                    // label = label.charAt(0).toUpperCase() + label.slice(1);
 
                     const data: number[] = series.map((s) => {
                         if (typeof s.value === 'number') {
@@ -123,7 +132,9 @@ function AnalyticsOverview(props: Props): JSX.Element | null {
                         <HistogramView
                             datasets={datasets}
                             labels={dateLabels}
-                            title={entry.title}
+                            title={entry.title
+                                ?.replace('Objects', '对象')
+                                ?.replace('Annotation speed (objects per hour)', '注释速度（对象/小时）')}
                             key={entry.name}
                             entryName={entry.name}
                         />
@@ -144,7 +155,7 @@ function AnalyticsOverview(props: Props): JSX.Element | null {
             <Row justify='space-between'>
                 <Col>
                     <Text type='secondary'>
-                        Created
+                        创建于
                         &nbsp;
                         {report?.createdDate ? moment(report?.createdDate).fromNow() : ''}
                     </Text>
