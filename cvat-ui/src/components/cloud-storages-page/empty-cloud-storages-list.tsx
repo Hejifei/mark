@@ -20,7 +20,7 @@ export default function EmptyStoragesListComponent(props: Props): JSX.Element {
     const description = notFound ? (
         <Row justify='center' align='middle'>
             <Col>
-                <Text strong>No results matched your search found...</Text>
+                <Text strong>没有与您的搜索匹配的结果...</Text>
             </Col>
         </Row>
     ) : (

@@ -24,7 +24,7 @@ function EmptyWebhooksListComponent(props: Props): JSX.Element {
                         <Text strong>No webhooks created yet ...</Text>
                     </Col>
                 </Row>
-            ) : (<Text>No results matched your search</Text>)}
+            ) : (<Text>没有与您的搜索匹配的结果</Text>)}
             />
         </div>
     );

@@ -62,7 +62,7 @@ function MergeControl(props: Props): JSX.Element {
                     },
                 }}
             />
-            <CVATTooltip title={`Merge shapes/tracks ${shortcuts.SWITCH_MERGE_MODE.displayValue}`} placement='right'>
+            <CVATTooltip title={`合并形状/轨道 ${shortcuts.SWITCH_MERGE_MODE.displayValue}`} placement='right'>
                 <Icon {...dynamicIconProps} component={MergeIcon} />
             </CVATTooltip>
         </>

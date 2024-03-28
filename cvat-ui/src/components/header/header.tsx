@@ -232,30 +232,30 @@ function HeaderComponent(props: Props): JSX.Element {
 
     const showAboutModal = useCallback((): void => {
         Modal.info({
-            title: `${about.server.name}`,
+            title: '水冷壁数据标记平台',
             content: (
                 <div>
-                    <p>{`${about.server.description}`}</p>
+                    <p>它是用于计算机视觉的免费在线交互式视频和图像注释工具。 我们的团队正在使用它来注释数百万个具有不同属性的对象。 许多 UI 和 UX 决策都是基于专业数据注释团队的反馈。</p>
                     <p>
-                        <Text strong>Server version:</Text>
+                        <Text strong>服务版本号:</Text>
                         <Text type='secondary'>{` ${about.server.version}`}</Text>
                     </p>
                     <p>
-                        <Text strong>Core version:</Text>
+                        <Text strong>内核版本号:</Text>
                         <Text type='secondary'>{` ${about.packageVersion.core}`}</Text>
                     </p>
                     <p>
-                        <Text strong>Canvas version:</Text>
+                        <Text strong>画布版本号:</Text>
                         <Text type='secondary'>{` ${about.packageVersion.canvas}`}</Text>
                     </p>
                     <p>
-                        <Text strong>UI version:</Text>
+                        <Text strong>界面版本号:</Text>
                         <Text type='secondary'>{` ${about.packageVersion.ui}`}</Text>
                     </p>
-                    <Row justify='space-around'>
+                    {/* <Row justify='space-around'>
                         { aboutLinks.sort((item1, item2) => item1[1] - item2[1])
                             .map((item) => item[0]) }
-                    </Row>
+                    </Row> */}
                 </div>
             ),
             width: 800,
@@ -264,6 +264,7 @@ function HeaderComponent(props: Props): JSX.Element {
                     width: '100px',
                 },
             },
+            okText: '确定',
         });
     }, [about]);
 
@@ -304,7 +305,7 @@ function HeaderComponent(props: Props): JSX.Element {
                     window.open('/admin', '_blank');
                 }}
             >
-                Admin page
+                管理页面
             </Menu.Item>
         ), 0]);
     }
@@ -314,12 +315,12 @@ function HeaderComponent(props: Props): JSX.Element {
         <Menu.SubMenu
             disabled={organizationFetching || listFetching}
             key='organization'
-            title='Organization'
+            title='组织'
             icon={organizationFetching || listFetching ? <LoadingOutlined /> : <TeamOutlined />}
         >
             {currentOrganization ? (
                 <Menu.Item icon={<SettingOutlined />} key='open_organization' onClick={() => history.push('/organization')} className='cvat-header-menu-open-organization'>
-                    Settings
+                    设置
                 </Menu.Item>
             ) : null}
             <Menu.Item
@@ -330,9 +331,9 @@ function HeaderComponent(props: Props): JSX.Element {
                     history.push('/invitations');
                 }}
             >
-                Invitations
+                邀请
             </Menu.Item>
-            <Menu.Item icon={<PlusOutlined />} key='create_organization' onClick={() => history.push('/organizations/create')} className='cvat-header-menu-create-organization'>Create</Menu.Item>
+            <Menu.Item icon={<PlusOutlined />} key='create_organization' onClick={() => history.push('/organizations/create')} className='cvat-header-menu-create-organization'>创建</Menu.Item>
             { !!organizationsList && viewType === 'list' && (
                 <Menu.Item
                     key='switch_organization'
@@ -354,7 +355,7 @@ function HeaderComponent(props: Props): JSX.Element {
                         });
                     }}
                 >
-                    Switch organization
+                    切换组织
                 </Menu.Item>
             )}
             { !!organizationsList && viewType === 'menu' && (
@@ -367,7 +368,7 @@ function HeaderComponent(props: Props): JSX.Element {
                             key='$personal'
                             onClick={resetOrganization}
                         >
-                            Personal workspace
+                            个人工作空间
                         </Menu.Item>
                         {organizationsList.map((organization: any): JSX.Element => (
                             <Menu.Item
@@ -392,13 +393,13 @@ function HeaderComponent(props: Props): JSX.Element {
             title={`Press ${switchSettingsShortcut} to switch`}
             onClick={() => switchSettingsModalVisible(true)}
         >
-            Settings
+            设置
         </Menu.Item>
     ), 20]);
 
     menuItems.push([(
         <Menu.Item icon={<InfoCircleOutlined />} key='about' onClick={() => showAboutModal()}>
-            About
+            关于
         </Menu.Item>
     ), 30]);
 
@@ -411,7 +412,7 @@ function HeaderComponent(props: Props): JSX.Element {
                 onClick={(): void => switchChangePasswordModalVisible(true)}
                 disabled={changePasswordFetching}
             >
-                Change password
+                修改密码
             </Menu.Item>
         ), 40]);
     }
@@ -425,7 +426,7 @@ function HeaderComponent(props: Props): JSX.Element {
             }}
             disabled={logoutFetching}
         >
-            Logout
+            退出
         </Menu.Item>
     ), 50]);
 
@@ -556,7 +557,7 @@ function HeaderComponent(props: Props): JSX.Element {
                         }}
                     />
                 </CVATTooltip> */}
-                <CVATTooltip overlay='点击打开指南'>
+                {/* <CVATTooltip overlay='点击打开指南'>
                     <Button
                         icon={<QuestionCircleOutlined />}
                         size='large'
@@ -568,7 +569,7 @@ function HeaderComponent(props: Props): JSX.Element {
                             window.open(GUIDE_URL, '_blank');
                         }}
                     />
-                </CVATTooltip>
+                </CVATTooltip> */}
                 <Dropdown placement='bottomRight' overlay={userMenu} className='cvat-header-menu-user-dropdown'>
                     <span>
                         <UserOutlined className='cvat-header-dropdown-icon' />

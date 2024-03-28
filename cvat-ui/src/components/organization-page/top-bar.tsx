@@ -79,8 +79,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
             content: (
                 <div className='cvat-remove-organization-submit'>
                     <Text type='warning'>
-                        To remove the organization,
-                        enter its short name below
+                        要删除组织，请在下面输入其简称
                     </Text>
                     <Input
                         onChange={
@@ -100,7 +99,8 @@ function OrganizationTopBar(props: Props): JSX.Element {
                 disabled: true,
                 danger: true,
             },
-            okText: 'Remove',
+            okText: '删除',
+            cancelText: '取消',
         });
     };
 
@@ -117,7 +117,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                         <Row justify='space-between'>
                             <Col>
                                 <Text>
-                                    <Text className='cvat-title'>{`Organization: ${slug} `}</Text>
+                                    <Text className='cvat-title'>{`组织: ${slug} `}</Text>
                                 </Text>
                             </Col>
                             <Col>
@@ -134,7 +134,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                                     return false;
                                                 }}
                                             >
-                                                Setup webhooks
+                                                设置网络钩子
                                             </a>
                                         </Menu.Item>
                                         {owner && userID === owner.id ? (
@@ -142,14 +142,14 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                                 key={MenuActions.REMOVE_ORGANIZATION}
                                                 onClick={onRemove}
                                             >
-                                                Remove organization
+                                                删除组织
                                             </Menu.Item>
                                         ) : null}
                                     </Menu>
                                 )}
                                 >
                                     <Button size='middle' className='cvat-organization-page-actions-button'>
-                                        <Text className='cvat-text-color'>Actions</Text>
+                                        <Text className='cvat-text-color'>操作</Text>
                                         <MoreOutlined className='cvat-menu-icon' />
                                     </Button>
                                 </Dropdown>
@@ -210,7 +210,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                     <div className='cvat-organization-top-bar-contacts'>
                         <div>
                             <PhoneOutlined />
-                            { !contact.phoneNumber ? <Text type='secondary'>Add phone number</Text> : null }
+                            { !contact.phoneNumber ? <Text type='secondary'>添加电话号码</Text> : null }
                             <Text
                                 type='secondary'
                                 editable={{
@@ -230,7 +230,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                         </div>
                         <div>
                             <MailOutlined />
-                            { !contact.email ? <Text type='secondary'>Add email</Text> : null }
+                            { !contact.email ? <Text type='secondary'>添加邮箱</Text> : null }
                             <Text
                                 type='secondary'
                                 editable={{
@@ -250,7 +250,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                         </div>
                         <div>
                             <EnvironmentOutlined />
-                            { !contact.location ? <Text type='secondary'>Add location</Text> : null }
+                            { !contact.location ? <Text type='secondary'>添加定位</Text> : null }
                             <Text
                                 type='secondary'
                                 editable={{
@@ -311,7 +311,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                             onClick={() => setVisibleInviteModal(true)}
                             icon={<PlusCircleOutlined />}
                         >
-                            Invite members
+                            邀请成员
                         </Button>
                     </Space>
                 </Col>
@@ -327,6 +327,8 @@ function OrganizationTopBar(props: Props): JSX.Element {
                 onOk={() => {
                     form.submit();
                 }}
+                okText='确定'
+                cancelText='取消'
             >
                 <Form
                     initialValues={{
@@ -345,11 +347,11 @@ function OrganizationTopBar(props: Props): JSX.Element {
                     form={form}
                 >
                     <Paragraph>
-                        <Text>Invite CVAT users to collaborate </Text>
+                        <Text>邀请平台用户协作 </Text>
                     </Paragraph>
                     <Paragraph>
                         <Text type='secondary'>
-                            If the email address is registered on CVAT, the user will be added to the organization
+                        如果电子邮件地址已在 标注平台 上注册，则用户将被添加到组织中
                         </Text>
                     </Paragraph>
                     <Form.List name='users'>
@@ -364,11 +366,11 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                                 name={[field.name, 'email']}
                                                 fieldKey={[field.fieldKey, 'email']}
                                                 rules={[
-                                                    { required: true, message: 'This field is required' },
-                                                    { type: 'email', message: 'The input is not a valid email' },
+                                                    { required: true, message: '此字段是必需的' },
+                                                    { type: 'email', message: '输入的电子邮件不是有效的电子邮件' },
                                                 ]}
                                             >
-                                                <Input placeholder='Enter an email address' />
+                                                <Input placeholder='输入电子邮件地址' />
                                             </Form.Item>
                                         </Col>
                                         <Col span={10} offset={1}>
@@ -380,9 +382,9 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                                 rules={[{ required: true, message: 'This field is required' }]}
                                             >
                                                 <Select>
-                                                    <Select.Option value='worker'>Worker</Select.Option>
-                                                    <Select.Option value='supervisor'>Supervisor</Select.Option>
-                                                    <Select.Option value='maintainer'>Maintainer</Select.Option>
+                                                    <Select.Option value='worker'>工人</Select.Option>
+                                                    <Select.Option value='supervisor'>导师</Select.Option>
+                                                    <Select.Option value='maintainer'>维护者</Select.Option>
                                                 </Select>
                                             </Form.Item>
                                         </Col>
@@ -395,7 +397,7 @@ function OrganizationTopBar(props: Props): JSX.Element {
                                 ))}
                                 <Form.Item>
                                     <Button className='cvat-invite-more-org-members-button' icon={<PlusCircleOutlined />} onClick={() => add()}>
-                                        Invite more
+                                        邀请更多
                                     </Button>
                                 </Form.Item>
                             </>

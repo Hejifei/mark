@@ -34,12 +34,12 @@ const storage = {
         return (
             <>
                 <GlobalHotKeys keyMap={subKeyMap} handlers={handlers} />
-                <CVATTooltip overlay={`Save current changes ${normKeyMap.SAVE_JOB}`}>
+                <CVATTooltip overlay={`保存当前更改 ${normKeyMap.SAVE_JOB}`}>
                     <Button
                         {...rest}
                     >
                         <Icon component={SaveIcon} />
-                        {isSaving ? 'Saving...' : 'Save'}
+                        {isSaving ? '保存中...' : '保存'}
                     </Button>
                 </CVATTooltip>
             </>

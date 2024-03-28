@@ -571,7 +571,7 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                 </Row>
                 <Row justify='start' className='cvat-opencv-drawing-tools'>
                     <Col>
-                        <CVATTooltip title='Intelligent scissors' className='cvat-opencv-drawing-tool'>
+                        <CVATTooltip title='智能裁剪' className='cvat-opencv-drawing-tool'>
                             <Button
                                 className='cvat-opencv-scissors-tool-button'
                                 onClick={() => {
@@ -726,13 +726,13 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                 </Row>
                 {libraryInitialized ? (
                     <Tabs tabBarGutter={8}>
-                        <Tabs.TabPane key='drawing' tab='Drawing' className='cvat-opencv-control-tabpane'>
+                        <Tabs.TabPane key='drawing' tab='绘画' className='cvat-opencv-control-tabpane'>
                             {this.renderDrawingContent()}
                         </Tabs.TabPane>
-                        <Tabs.TabPane key='image' tab='Image' className='cvat-opencv-control-tabpane'>
+                        <Tabs.TabPane key='image' tab='图片' className='cvat-opencv-control-tabpane'>
                             {this.renderImageContent()}
                         </Tabs.TabPane>
-                        <Tabs.TabPane key='tracking' tab='Tracking' className='cvat-opencv-control-tabpane'>
+                        <Tabs.TabPane key='tracking' tab='追踪' className='cvat-opencv-control-tabpane'>
                             {this.renderTrackingContent()}
                         </Tabs.TabPane>
                     </Tabs>
@@ -741,12 +741,12 @@ class OpenCVControlComponent extends React.PureComponent<Props & DispatchToProps
                         <Col>
                             {
                                 initializationProgress >= 0 ?
-                                    <Text>OpenCV is loading</Text> : (
+                                    <Text>OpenCV 正在加载</Text> : (
                                         <Button
                                             className='cvat-opencv-initialization-button'
                                             onClick={() => { this.initializeOpenCV(); }}
                                         >
-                                            Reload OpenCV
+                                            重新加载 OpenCV
                                         </Button>
                                     )
                             }

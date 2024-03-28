@@ -60,8 +60,8 @@ function GroupControl(props: Props): JSX.Element {
             };
 
     const title = [
-        `Group shapes/tracks ${shortcuts.SWITCH_GROUP_MODE.displayValue}`,
-        `Select and press ${shortcuts.RESET_GROUP.displayValue} to reset a group.`,
+        `组形状/轨道 ${shortcuts.SWITCH_GROUP_MODE.displayValue}`,
+        `选择并按 ${shortcuts.RESET_GROUP.displayValue} 重置组.`,
     ].join(' ');
 
     return disabled ? (

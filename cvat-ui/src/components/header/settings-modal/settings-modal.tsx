@@ -74,7 +74,7 @@ function SettingsModal(props: SettingsModalProps): JSX.Element {
 
     return (
         <Modal
-            title='Settings'
+            title='设置'
             visible={visible}
             onCancel={onClose}
             width={800}
@@ -91,6 +91,8 @@ function SettingsModal(props: SettingsModalProps): JSX.Element {
                     </Button>
                 </>
             )}
+            okText='保存'
+            cancelText='取消'
         >
             <div className='cvat-settings-tabs'>
                 <Tabs type='card' tabBarStyle={{ marginBottom: '0px', marginLeft: '-1px' }}>
@@ -98,7 +100,7 @@ function SettingsModal(props: SettingsModalProps): JSX.Element {
                         tab={(
                             <span>
                                 <PlayCircleOutlined />
-                                <Text>Player</Text>
+                                <Text>玩家</Text>
                             </span>
                         )}
                         key='player'
@@ -109,7 +111,7 @@ function SettingsModal(props: SettingsModalProps): JSX.Element {
                         tab={(
                             <span>
                                 <LaptopOutlined />
-                                <Text>Workspace</Text>
+                                <Text>工作空间</Text>
                             </span>
                         )}
                         key='workspace'

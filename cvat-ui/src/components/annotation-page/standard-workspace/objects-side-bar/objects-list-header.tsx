@@ -44,7 +44,7 @@ function LockAllSwitcher(props: Props): JSX.Element {
     } = props;
     return (
         <Col span={2}>
-            <CVATTooltip title={`Switch lock property for all ${switchLockAllShortcut}`}>
+            <CVATTooltip title={`为所有人切换锁属性 ${switchLockAllShortcut}`}>
                 {statesLocked ? <LockFilled onClick={unlockAllStates} /> : <UnlockOutlined onClick={lockAllStates} />}
             </CVATTooltip>
         </Col>
@@ -57,7 +57,7 @@ function HideAllSwitcher(props: Props): JSX.Element {
     } = props;
     return (
         <Col span={2}>
-            <CVATTooltip title={`Switch hidden property for all ${switchHiddenAllShortcut}`}>
+            <CVATTooltip title={`为所有人切换隐藏属性 ${switchHiddenAllShortcut}`}>
                 {statesHidden ? (
                     <EyeInvisibleFilled onClick={showAllStates} />
                 ) : (
@@ -74,7 +74,7 @@ function GTSwitcher(props: Props): JSX.Element {
     } = props;
     return (
         <Col>
-            <CVATTooltip title='Show Ground truth annotations and conflicts'>
+            <CVATTooltip title='显示真实注释和冲突'>
                 <Icon
                     className={
                         `cvat-objects-sidebar-show-ground-truth ${showGroundTruth ? 'cvat-objects-sidebar-show-ground-truth-active' : ''}`
@@ -91,7 +91,7 @@ function CollapseAllSwitcher(props: Props): JSX.Element {
     const { statesCollapsed, expandAllStates, collapseAllStates } = props;
     return (
         <Col>
-            <CVATTooltip title='Expand/collapse all'>
+            <CVATTooltip title='全部展开/折叠'>
                 {statesCollapsed ? (
                     <CaretDownOutlined onClick={expandAllStates} />
                 ) : (

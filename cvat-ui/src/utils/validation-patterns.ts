@@ -47,38 +47,38 @@ const validationPatterns = {
     validateName: {
         // eslint-disable-next-line
         pattern: /^(\p{L}|\p{Pd}|\p{Cf}|\p{Pc}|['\s]){2,}$/gu,
-        message: 'Invalid name',
+        message: '名称无效',
     },
 
     validateAttributeName: {
         pattern: /\S+/,
-        message: 'Invalid name',
+        message: '名称无效',
     },
 
     validateLabelName: {
         pattern: /\S+/,
-        message: 'Invalid name',
+        message: '名称无效',
     },
 
     validateAttributeValue: {
         pattern: /\S+/,
-        message: 'Invalid attribute value',
+        message: '属性值无效',
     },
 
     validateURL: {
         // eslint-disable-next-line
         pattern: /^(https?:\/\/)[^\s$.?#].[^\s]*$/, // url, ip
-        message: 'URL is not valid',
+        message: '网址无效',
     },
 
     validateOrganizationSlug: {
         pattern: /^[a-zA-Z\d]+$/,
-        message: 'Only Latin characters and numbers are allowed',
+        message: '仅允许使用拉丁字符和数字',
     },
 
     validatePhoneNumber: {
         pattern: /^[+]*[-\s0-9]*$/g,
-        message: 'Input phone number is not correct',
+        message: '输入的电话号码不正确',
     },
 };
 

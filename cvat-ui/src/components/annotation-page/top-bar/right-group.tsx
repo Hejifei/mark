@@ -56,7 +56,7 @@ function RightGroup(props: Props): JSX.Element {
                 }}
             >
                 <Icon component={FullscreenIcon} />
-                Fullscreen
+                全屏
             </Button>
             { jobInstance.guideId !== null && (
                 <Button
@@ -90,7 +90,7 @@ function RightGroup(props: Props): JSX.Element {
                     }}
                 >
                     <Icon component={GuideIcon} />
-                    Guide
+                    指导
                 </Button>
             )}
             <Button
@@ -99,7 +99,7 @@ function RightGroup(props: Props): JSX.Element {
                 onClick={showStatistics}
             >
                 <Icon component={InfoIcon} />
-                Info
+                信息
             </Button>
             <Button
                 type='link'
@@ -109,7 +109,7 @@ function RightGroup(props: Props): JSX.Element {
                 onClick={showFilters}
             >
                 <Icon component={FilterIcon} />
-                Filters
+                过滤
             </Button>
             <div>
                 <Select

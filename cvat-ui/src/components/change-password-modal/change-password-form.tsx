@@ -30,14 +30,14 @@ function ChangePasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element
                 rules={[
                     {
                         required: true,
-                        message: 'Please input your current password!',
+                        message: '请输入当前密码!',
                     },
                 ]}
             >
                 <Input.Password
                     autoComplete='current-password'
                     prefix={<LockOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                    placeholder='Current password'
+                    placeholder='当前密码'
                 />
             </Form.Item>
 
@@ -47,7 +47,7 @@ function ChangePasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element
                 rules={[
                     {
                         required: true,
-                        message: 'Please input new password!',
+                        message: '请输入新密码!',
                     },
                     validatePassword,
                 ]}
@@ -55,7 +55,7 @@ function ChangePasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element
                 <Input.Password
                     autoComplete='new-password'
                     prefix={<LockOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                    placeholder='New password'
+                    placeholder='新密码'
                 />
             </Form.Item>
 
@@ -66,7 +66,7 @@ function ChangePasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element
                 rules={[
                     {
                         required: true,
-                        message: 'Please confirm your new password!',
+                        message: '请确认新密码!',
                     },
                     validateConfirmation('newPassword1'),
                 ]}
@@ -74,7 +74,7 @@ function ChangePasswordFormComponent({ fetching, onSubmit }: Props): JSX.Element
                 <Input.Password
                     autoComplete='new-password'
                     prefix={<LockOutlined style={{ color: 'rgba(0, 0, 0, 0.25)' }} />}
-                    placeholder='Confirm new password'
+                    placeholder='确认新密码'
                 />
             </Form.Item>
 

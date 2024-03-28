@@ -68,7 +68,7 @@ function SliceControl(props: Props): JSX.Element {
                     },
                 }}
             />
-            <CVATTooltip title={`Slice a mask/polygon shape ${shortcuts.SWITCH_SLICE_MODE.displayValue}`} placement='right'>
+            <CVATTooltip title={`切片蒙版/多边形形状 ${shortcuts.SWITCH_SLICE_MODE.displayValue}`} placement='right'>
                 <Icon {...dynamicIconProps} component={SliceIcon} />
             </CVATTooltip>
         </>

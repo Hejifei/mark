@@ -60,7 +60,7 @@ function SplitControl(props: Props): JSX.Element {
                     },
                 }}
             />
-            <CVATTooltip title={`Split a track ${shortcuts.SWITCH_SPLIT_MODE.displayValue}`} placement='right'>
+            <CVATTooltip title={`分割轨道 ${shortcuts.SWITCH_SPLIT_MODE.displayValue}`} placement='right'>
                 <Icon {...dynamicIconProps} component={SplitIcon} />
             </CVATTooltip>
         </>
